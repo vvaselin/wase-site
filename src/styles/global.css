@@ -1,33 +1,199 @@
-@import "./reset.css";
-@import "./tokens.css";
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-html {
-  color: var(--color-text);
-  background: var(--color-background);
-  font-family: var(--font-body);
+html,
+body {
+  margin: 0;
+  min-height: 100%;
 }
 
 body {
-  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  color: #222;
+  background: #fff;
 }
 
 a {
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.2em;
+  color: inherit;
+  text-decoration: none;
 }
 
-::selection {
-  color: var(--color-text);
-  background: var(--color-accent);
+/* Header */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  width: min(100% - 2rem, 1600px);
+  min-height: 72px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  border: 1px solid #444;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    scroll-behavior: auto !important;
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+.site-title {
+  margin-right: auto;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu-button {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+}
+
+.menu-button span {
+  display: block;
+  height: 3px;
+  margin-block: 5px;
+  background: currentColor;
+}
+
+/* Room */
+
+.room {
+  position: relative;
+  width: min(100% - 2rem, 1600px);
+  aspect-ratio: 16 / 9;
+  margin-inline: auto;
+  overflow: hidden;
+  border: 1px solid #444;
+  border-top: 0;
+}
+
+.room-object {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 1px solid #777;
+  background: #f4f4f4;
+}
+
+.shelf-posts {
+  left: 3%;
+  top: 10%;
+  width: 29%;
+  height: 20%;
+}
+
+.shelf-games {
+  left: 3%;
+  top: 32%;
+  width: 29%;
+  height: 20%;
+}
+
+.aquarium {
+  left: 34%;
+  top: 10%;
+  width: 32%;
+  height: 42%;
+}
+
+.shelf-portraits {
+  right: 3%;
+  top: 10%;
+  width: 29%;
+  height: 20%;
+}
+
+.socials {
+  right: 3%;
+  top: 32%;
+  width: 29%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.character {
+  left: 40%;
+  top: 24%;
+  width: 20%;
+  height: 66%;
+  z-index: 3;
+  background: transparent;
+  border-style: dashed;
+}
+
+.desk {
+  left: 26%;
+  top: 57%;
+  width: 48%;
+  height: 25%;
+  z-index: 2;
+  background: transparent;
+}
+
+.plant {
+  left: 4%;
+  bottom: 0;
+  width: 16%;
+  height: 36%;
+  background: transparent;
+}
+
+@media (max-width: 700px) {
+  .site-header {
+    min-height: 64px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .room {
+    aspect-ratio: 9 / 16;
+  }
+
+  .shelf,
+  .plant {
+    display: none;
+  }
+
+  .aquarium {
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 37%;
+  }
+
+  .character {
+    left: 22%;
+    top: 24%;
+    width: 56%;
+    height: 66%;
+  }
+
+  .desk {
+    left: 0;
+    top: 50%;
+    width: 100%;
+    height: 18%;
+  }
+
+  .socials {
+    right: 5%;
+    top: 44%;
+    width: 36%;
+    height: 7%;
+    z-index: 4;
   }
 }
