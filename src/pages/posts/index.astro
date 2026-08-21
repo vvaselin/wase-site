@@ -12,19 +12,22 @@ const posts = (await getCollection("posts"))
 ---
 
 <Layout title="Posts">
-  <main>
+  <main class="posts-page">
     <h1>Posts</h1>
 
-    <ul>
+    <ul class="post-list">
       {posts.map((post) => (
         <li>
-          <a href={`/posts/${post.id}/`}>
+          <a class="post-card" href={`/posts/${post.id}/`}>
+            <div class="post-card-meta">
+              <time datetime={post.data.publishedAt.toISOString()}>
+                {post.data.publishedAt.toLocaleDateString("ja-JP")}
+              </time>
+
+              <span>{post.data.category}</span>
+            </div>
+
             <h2>{post.data.title}</h2>
-
-            <time datetime={post.data.publishedAt.toISOString()}>
-              {post.data.publishedAt.toLocaleDateString("ja-JP")}
-            </time>
-
             <p>{post.data.description}</p>
           </a>
         </li>

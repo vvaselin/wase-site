@@ -12,7 +12,8 @@ const posts = (await getCollection("posts"))
       b.data.publishedAt.getTime() -
       a.data.publishedAt.getTime()
   )
-  .slice(0, 5);
+  .slice(0, 5)
+  .reverse();
 ---
 
 <Layout title="WaseSite">

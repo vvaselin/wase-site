@@ -1,7 +1,7 @@
 ---
-title: "四つ目の記事"
+title: "最初の記事"
 description: "このサイトで最初に書いた記事です。"
-publishedAt: 2026-08-20
+publishedAt: 2026-08-17
 category: "Web"
 tags:
   - Astro
@@ -11,4 +11,4 @@ draft: false
 
 # 古い記事
 
-四つ目だね
+一つ目だね

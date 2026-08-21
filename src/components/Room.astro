@@ -11,19 +11,30 @@ const { posts } = Astro.props;
 <main class="room" aria-label="水槽のある書斎">
   <div class="room-side room-side-left">
     <section class="shelf shelf-posts">
-  <span class="shelf-title">POSTS</span>
-    <div class="books">
-      {posts.map((post) => (
+      <div class="shelf-header">
+        <span class="shelf-title">POSTS</span>
+
         <a
-          class="book"
-          href={`/posts/${post.id}/`}
-          title={post.data.title}
+          class="shelf-more"
+          href="/posts/"
+          aria-label="記事一覧を見る"
         >
-          <span>{post.data.title}</span>
+          →
         </a>
-      ))}
-    </div>
-  </section>
+      </div>
+
+      <div class="books">
+        {posts.map((post) => (
+          <a
+            class="book"
+            href={`/posts/${post.id}/`}
+            title={post.data.title}
+          >
+            <span>{post.data.title}</span>
+          </a>
+        ))}
+      </div>
+    </section>
 
     <section class="shelf shelf-games">
       <span>GAMES</span>

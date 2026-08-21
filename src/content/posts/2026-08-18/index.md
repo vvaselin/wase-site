@@ -1,7 +1,7 @@
 ---
-title: "五つ目の記事"
+title: "二つ目の記事"
 description: "このサイトで次に書いた記事です。"
-publishedAt: 2026-08-21
+publishedAt: 2026-08-18
 category: "Web"
 tags:
   - Astro
@@ -11,4 +11,4 @@ draft: false
 
 # 新しい記事
 
-五つ目だね
+二つ目だね
