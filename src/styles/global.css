@@ -167,21 +167,6 @@ a {
   border: 1px solid #777;
 }
 
-.plant {
-  position: absolute;
-
-  left: 1%;
-  bottom: 0;
-
-  width: 16%;
-  height: 36%;
-
-  display: grid;
-  place-items: center;
-
-  border: 1px solid #777;
-}
-
 /* PCとしての最小サイズ */
 
 @media (min-width: 768px) {
@@ -210,8 +195,7 @@ a {
     aspect-ratio: 9 / 16;
   }
 
-  .shelf,
-  .plant {
+  .shelf{
     display: none;
   }
 
