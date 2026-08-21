@@ -1,3 +1,8 @@
+:root {
+  --page-max-width: 1600px;
+  --page-margin: 1rem;
+}
+
 *,
 *::before,
 *::after {
@@ -21,17 +26,30 @@ a {
   text-decoration: none;
 }
 
+/* 共通幅 */
+.site-header,
+.room {
+  width: min(
+    calc(100% - var(--page-margin) * 2),
+    var(--page-max-width)
+  );
+
+  margin-inline: auto;
+}
+
 /* Header */
 
 .site-header {
   display: flex;
   align-items: center;
   gap: 2rem;
+
   width: min(100% - 2rem, 1600px);
   min-height: 72px;
   margin-inline: auto;
   padding-inline: 1.5rem;
-  border: 1px solid #444;
+
+  border-bottom: 1px solid #777;
 }
 
 .site-title {
@@ -65,88 +83,117 @@ a {
 
 .room {
   position: relative;
-  width: min(100% - 2rem, 1600px);
-  aspect-ratio: 16 / 9;
+
+  display: grid;
+  grid-template-columns:
+    minmax(180px, 1fr)
+    minmax(420px, 620px)
+    minmax(180px, 1fr);
+
+  gap: 1.25rem;
+
+  width: min(
+    calc(100% - var(--page-margin) * 2),
+    var(--page-max-width)
+  );
+
+  min-height: 650px;
   margin-inline: auto;
+  padding-top: 3rem;
+
   overflow: hidden;
-  border: 1px solid #444;
-  border-top: 0;
 }
 
-.room-object {
-  position: absolute;
+.room-side {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.shelf,
+.socials {
   display: grid;
   place-items: center;
+
+  min-height: 180px;
+
   border: 1px solid #777;
   background: #f4f4f4;
 }
 
-.shelf-posts {
-  left: 3%;
-  top: 10%;
-  width: 29%;
-  height: 20%;
+.center-stage {
+  position: relative;
+  min-height: 600px;
 }
 
-.shelf-games {
-  left: 3%;
-  top: 32%;
-  width: 29%;
-  height: 20%;
+.aquarium,
+.character,
+.desk {
+  position: absolute;
+  display: grid;
+  place-items: center;
 }
 
 .aquarium {
-  left: 34%;
-  top: 10%;
-  width: 32%;
+  top: 0;
+  left: 5%;
+
+  width: 90%;
   height: 42%;
-}
 
-.shelf-portraits {
-  right: 3%;
-  top: 10%;
-  width: 29%;
-  height: 20%;
-}
-
-.socials {
-  right: 3%;
-  top: 32%;
-  width: 29%;
-  height: 20%;
-  display: flex;
-  justify-content: center;
-  gap: 0.75rem;
+  border: 1px solid #777;
+  background: #f4f4f4;
 }
 
 .character {
-  left: 40%;
-  top: 24%;
-  width: 20%;
-  height: 66%;
+  top: 15%;
+  left: 27.5%;
+
+  width: 45%;
+  height: 70%;
+
   z-index: 3;
-  background: transparent;
-  border-style: dashed;
+  border: 1px dashed #777;
 }
 
 .desk {
-  left: 26%;
-  top: 57%;
-  width: 48%;
-  height: 25%;
+  top: 48%;
+  left: -15%;
+
+  width: 130%;
+  height: 24%;
+
   z-index: 2;
-  background: transparent;
+  border: 1px solid #777;
 }
 
 .plant {
-  left: 4%;
+  position: absolute;
+
+  left: 1%;
   bottom: 0;
+
   width: 16%;
   height: 36%;
-  background: transparent;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #777;
 }
 
-@media (max-width: 700px) {
+/* PCとしての最小サイズ */
+
+@media (min-width: 768px) {
+  .site-header,
+  .room {
+    min-width: 736px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
   .site-header {
     min-height: 64px;
   }
