@@ -44,9 +44,7 @@ a {
   align-items: center;
   gap: 2rem;
 
-  width: min(100% - 2rem, 1600px);
   min-height: 72px;
-  margin-inline: auto;
   padding-inline: 1.5rem;
 
   border-bottom: 1px solid #777;
@@ -92,13 +90,7 @@ a {
 
   gap: 1.25rem;
 
-  width: min(
-    calc(100% - var(--page-margin) * 2),
-    var(--page-max-width)
-  );
-
   min-height: 650px;
-  margin-inline: auto;
   padding-top: 3rem;
 
   overflow: hidden;
@@ -110,10 +102,21 @@ a {
   gap: 1rem;
 }
 
-.shelf,
-.socials {
+.shelf {
   display: grid;
   place-items: center;
+
+  min-height: 180px;
+
+  border: 1px solid #777;
+  background: #f4f4f4;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
 
   min-height: 180px;
 
@@ -169,6 +172,22 @@ a {
 
 /* PCとしての最小サイズ */
 
+@media (max-width: 1199px) and (min-width: 768px) {
+  .room {
+    grid-template-columns:
+      minmax(130px, 1fr)
+      minmax(420px, 540px)
+      minmax(130px, 1fr);
+
+    gap: 0.75rem;
+  }
+
+  .shelf,
+  .socials {
+    min-height: 160px;
+  }
+}
+
 @media (min-width: 768px) {
   .site-header,
   .room {
@@ -179,52 +198,71 @@ a {
 /* Mobile */
 
 @media (max-width: 767px) {
-  .site-header {
-    min-height: 64px;
-  }
-
-  .desktop-nav {
-    display: none;
-  }
-
-  .menu-button {
-    display: block;
-  }
-
   .room {
+    display: block;
+
+    position: relative;
+
+    min-height: 720px;
     aspect-ratio: 9 / 16;
+
+    padding-top: 2rem;
   }
 
-  .shelf{
+  .room-side-left {
     display: none;
+  }
+
+  .room-side-right {
+    display: contents;
+  }
+
+  .shelf {
+    display: none;
+  }
+
+  .center-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
   }
 
   .aquarium {
     left: 10%;
-    top: 10%;
+    top: 5%;
+
     width: 80%;
     height: 37%;
   }
 
   .character {
     left: 22%;
-    top: 24%;
+    top: 19%;
+
     width: 56%;
     height: 66%;
   }
 
   .desk {
     left: 0;
-    top: 50%;
+    top: 45%;
+
     width: 100%;
     height: 18%;
   }
 
   .socials {
+    position: absolute;
+
     right: 5%;
-    top: 44%;
+    top: 42%;
+
     width: 36%;
     height: 7%;
+
+    min-height: 0;
+
     z-index: 4;
   }
 }
