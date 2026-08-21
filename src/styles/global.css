@@ -112,6 +112,29 @@ a {
   background: #f4f4f4;
 }
 
+.books {
+  display: flex;
+  align-items: end;
+  gap: 0.35rem;
+}
+
+.book {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 130px;
+
+  border: 1px solid #777;
+  background: #ddd;
+}
+
+.book span {
+  writing-mode: vertical-rl;
+  font-size: 0.75rem;
+}
+
 .socials {
   display: flex;
   align-items: center;

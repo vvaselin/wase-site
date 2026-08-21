@@ -1,8 +1,29 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  posts: CollectionEntry<"posts">[];
+}
+
+const { posts } = Astro.props;
+---
+
 <main class="room" aria-label="水槽のある書斎">
   <div class="room-side room-side-left">
     <section class="shelf shelf-posts">
-      <span>POSTS</span>
-    </section>
+  <span class="shelf-title">POSTS</span>
+    <div class="books">
+      {posts.map((post) => (
+        <a
+          class="book"
+          href={`/posts/${post.id}/`}
+          title={post.data.title}
+        >
+          <span>{post.data.title}</span>
+        </a>
+      ))}
+    </div>
+  </section>
 
     <section class="shelf shelf-games">
       <span>GAMES</span>

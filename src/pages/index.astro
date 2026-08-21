@@ -1,10 +1,21 @@
 ---
+import { getCollection } from "astro:content";
+
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Room from "../components/Room.astro";
+
+const posts = (await getCollection("posts"))
+  .filter((post) => !post.data.draft)
+  .sort(
+    (a, b) =>
+      b.data.publishedAt.getTime() -
+      a.data.publishedAt.getTime()
+  )
+  .slice(0, 5);
 ---
 
 <Layout title="WaseSite">
   <Header />
-  <Room />
+  <Room posts={posts} />
 </Layout>
